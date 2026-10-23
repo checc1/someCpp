@@ -17,6 +17,7 @@ vector<vector<int>> ReverseMatrix(vector<vector<int>> matrix){
 		}
 
 	*/
+
 	int rows = matrix.size();
     int cols = matrix[0].size();
     int M = cols / 2;
@@ -26,10 +27,10 @@ vector<vector<int>> ReverseMatrix(vector<vector<int>> matrix){
     );
 
     for (int k=0; k< rows; k++){
-    	dummy_matrix[k][M] = matrix[k][M];
+    	dummy_matrix[k][M] = matrix[k][0];
 
     	for (int i = 0; i < M; i++) {
-	        dummy_matrix[k][i] = matrix[k][M - 1 - i];
+	        dummy_matrix[k][i] = matrix[k][M - i];
 	    	}
 
 	    for (int i = M+1; i < cols; i++) {
@@ -44,9 +45,9 @@ vector<vector<int>> ReverseMatrix(vector<vector<int>> matrix){
 int main() {
 
     vector<vector<int>> original_matrix = {
-    	{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
-        {0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
-        {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+    	{0, 1, 2, 3, 4, 5, 6, 7, 8},
+        {0, 1, 2, 3, 4, 5, 6, 7, 8},
+        {0, 1, 2, 3, 4, 5, 6, 7, 8}
     };
 
     vector<vector<int>> DummyMatrix = ReverseMatrix(original_matrix);
